@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Yasser A.Gamal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet"> 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d24b72e522.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header class="masthead d-flex justify-content-around py-3 mb-5">
+      <!-- <div class="centered "> -->
+    
+        <div class="d-flex ">
+          <h2 class="text-light">Civil Engineering Apps</h2>
+        </div>
+        <!-- .site-title -->
+      <div class="d-flex">
+        <btn class="btn btn-secondary mx-2" id="shear">share</btn>
+        <a href="./index.html"><btn class="btn btn-info mx-2">Home page</btn></a>
+        <!-- <input  id="shear_input"> -->
+        <btn class="btn btn-info mx-2" id="clear">clear</btn>
+      </div>
+      
+      
+    </header>
+    <div class="container">
+      <h3 class="mb-2" style="color:#e74c3c">Terzaghi's Method</h3>
+        
+        <nav aria-label="breadcrumb" id="footwr" style="display: none;">
+            <ol class="breadcrumb bg-light">
+              <li class="breadcrumb-item  text-danger active "  aria-current="page">You have to select footing kind</li>
+            </ol>
+        </nav>
+
+        <nav aria-label="breadcrumb" id="anglrwr" style="display: none;">
+            <ol class="breadcrumb bg-light">
+              <li class="breadcrumb-item  text-danger active "  aria-current="page">You have to select Angle of internal friction of soil</li>
+            </ol>
+        </nav>
+
+        <nav aria-label="breadcrumb" id="anywr" style="display: none;">
+            <ol class="breadcrumb bg-light">
+              <li class="breadcrumb-item  text-danger active "  aria-current="page">Missing Data</li>
+            </ol>
+        </nav>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">footing kind</label>
+            <select class="form-control" id="kind">
+             <option>chosse</option>
+              <option>Strip</option>
+              <option>Square</option>
+              <option>circular</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Angle of internal friction of soil</label>
+            <select class="form-control" aria-placeholder="&#981;"  id="Angle">
+             <option>chosse</option>
+              <option>0</option>
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>25</option>
+              <option>30</option>
+              <option>34</option>
+              <option>35</option>
+              <option>40</option>
+              <option>45</option>
+              <option>48</option>
+              <option>50</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Safe Factor</label>
+            <input type="number"  class="form-control awring" id="fs" placeholder="f.s">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Density of soil below footing</label>
+            <input type="number"  class="form-control awring" id="Density" placeholder="&#947;">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlInput1">cohesion</label>
+          <input type="number"  class="form-control awring" id="cohesion" placeholder="C">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">width of footing</label>
+            <input type="number"  class="form-control awring" id="width" placeholder="B">
+        </div>
+
+
+        <section id="all_layer">
+            <div class="form-group">
+                <h4 class="mt-4 mb-3">over Burden pressure</h4>
+                <label for="exampleFormControlInput1">layer (1)</label>
+                <input type="number"  class="form-control layer_density"  placeholder="&#947;">
+                <input type="number"  class="form-control layer_depth my-2"  placeholder="D">
+            </div>
+        </section>
+
+        <div class="w-100 mb-5 mt-3">
+            <button class="btn btn-secondary" id="add_layer">add layer</button>
+
+        </div>
+
+        
+        <div class="form-group form-check mb-5">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1"  ><h5>Water Effect</h5></label>
+        </div>
+
+        <div style="display: none;" id="waterform">
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Depth of water table from surface</label>
+                <input type="number"  class="form-control" id="Dw" placeholder="Dw">
+            </div>
+      
+            <div class="form-group">
+                <label for="exampleFormControlInput1">distance from footing to surface</label>
+                <input type="number"  class="form-control" id="Df" placeholder="Df">
+            </div>
+
+        </div>
+
+        <button class="btn btn-primary my-3" id="btn-trz">Calculate Bearing Capacity</button>
+
+        <div id="result" style="display: none;" >
+            <div class="my-3 d-flex">
+                <h4>q<sun>u</sun>: <span id="qu"></span></h4>
+                <h6>   t<sup>3</sup>/m<sup>2</sup></h6>
+            </div>
+
+            <div class="my-3 d-flex">
+                <h4>q<sun>nu</sun>: <span id="qnu"></span> </h4>
+                <h6>   t<sup>3</sup>/m<sup>2</sup></h6>
+            </div>
+
+            <div class="my-3 d-flex">
+                <h4>q<sun>ns</sun>: <span id="qns"></span> </h4>
+                <h6>   t<sup>3</sup>/m<sup>2</sup></h6>
+            </div>
+
+            <div class="my-3 d-flex">
+                <h4>q<sun>s</sun>: <span id="qs"></span></h4>
+                <h6>   t<sup>3</sup>/m<sup>2</sup></h6>
+            </div>
+
+            <button class="btn btn-danger my-3" id="pdf">PDF</button>
+
+        </div>
+    </div>
+
+    <footer class="w-100 bg-dark mt-4 py-2 text-center position-fixed fixed-bottom">
+      <h4 class="text-light">Designed By / <a target="_blank" href="https://yassergamalfullstack.netlify.app/" class="text-primary">Yasser A. Gamal</a></h4>
+    </footer>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.rateyo.min.js"></script>
+    <script src="js/terzag.js"></script>
+
+  </body>
+</html>
