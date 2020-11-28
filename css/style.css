@@ -64,6 +64,20 @@ Header styles minus menu
   background: #e74c3c;
   -webkit-box-shadow: 3px 3px 8px #b3b3b3;
           box-shadow: 3px 3px 8px #b3b3b3; }
+  @media (max-width: 678px) {
+    .masthead {
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: normal !important;
+          -ms-flex-direction: column !important;
+              flex-direction: column !important;
+      -webkit-box-pack: center !important;
+          -ms-flex-pack: center !important;
+              justify-content: center !important;
+      -webkit-box-align: center !important;
+          -ms-flex-align: center !important;
+              align-items: center !important; }
+      .masthead div {
+        margin-bottom: 20px !important; } }
 
 .site-title {
   margin: 0 0 1em;
